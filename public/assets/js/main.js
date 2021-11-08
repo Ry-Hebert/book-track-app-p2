@@ -8,6 +8,7 @@ searchFunc.addEventListener('click', searchClickHandler)
 
 async function searchClickHandler(event){
     resCountIndex = 0
+
     let apiSearchBase = 'http://openlibrary.org/search.json?q='
 
     let userSearchQ = document.querySelector('#in1')
@@ -26,7 +27,7 @@ async function searchClickHandler(event){
     updateSearchResDis(test)
 }
 
-const updateSearchResDis = (res) =>{
+const updateSearchResDis = async (res) =>{
     const outputSelect = document.querySelector('#outDest')
 
     if(resCountIndex == 0){
@@ -34,14 +35,18 @@ const updateSearchResDis = (res) =>{
     }
 
     res.docs.forEach(element => {
+        let apiImageRes = `https://covers.openlibrary.org/b/id/${element.cover_i}-M.jpg`
+        // let imageAdd = await fetch(apiImageSearch)
+
         outputSelect.innerHTML +=
-            `<div class="card sticky-action">
+            `<div class="card sticky-action" value=${element.key}>
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/office.jpg">
+                    <img class="activator" src=${apiImageRes}>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">${element.title}<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is a link</a></p>
+                    <a class="waves-effect waves-light btn-small">To Read</a>
+                    <a class="waves-effect waves-light btn-small">Have Read</a>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
