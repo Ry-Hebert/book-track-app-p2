@@ -1,0 +1,7 @@
+#outDest{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.secHeader{
+    grid-column: 1 / span 4;
+}

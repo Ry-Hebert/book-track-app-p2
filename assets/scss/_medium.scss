@@ -1,0 +1,22 @@
+.input-field{
+    justify-content: center;
+    & > div{
+        //width: 50%;
+    }
+}
+
+nav{
+    div{
+        .cust-pad{
+            padding: 0rem 1rem;
+        }
+    }
+}
+
+#outDest{
+    grid-template-columns: 1fr 1fr;
+}
+
+.secHeader{
+    grid-column: 1 / span 2;
+}

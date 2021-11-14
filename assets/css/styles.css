@@ -1,0 +1,152 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+header nav, header nav ul, footer {
+  display: flex;
+  flex-direction: row; }
+
+header, .landing-page, section {
+  display: flex;
+  flex-direction: column; }
+
+header nav, footer {
+  justify-content: center; }
+
+header, .landing-page {
+  align-items: center; }
+
+header div, header nav ul, section {
+  max-width: 60rem; }
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0rem; }
+
+header {
+  font-size: 1.2rem;
+  width: 100vw;
+  margin: 0rem;
+  padding: 0rem;
+  color: #fff; }
+  header div {
+    width: 100%;
+    justify-content: flex-start; }
+    header div h1 {
+      font-size: 3.8rem;
+      padding-bottom: 0rem;
+      margin-bottom: -1rem; }
+  header nav {
+    width: 100vw;
+    background-color: #4F9E4C; }
+    header nav ul {
+      width: 100%; }
+      header nav ul li {
+        padding: .6rem;
+        width: 25%;
+        text-align: center; }
+      header nav ul li:hover {
+        background-color: #3e7c3b; }
+
+.landing-page {
+  width: 100vw;
+  padding: 0rem .5rem 0rem .5rem; }
+
+section {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  section h2 {
+    margin-top: 2rem; }
+  section h3 {
+    margin: 1.5rem 0rem .5rem 0rem; }
+  section p {
+    line-height: 1.8rem; }
+
+footer {
+  width: 100vw;
+  background-color: #4F9E4C;
+  height: 50px;
+  font-size: 1rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  color: #fff; }
+
+.active {
+  background-color: #3e7c3b; }
+
+.bg-pic {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-size: cover;
+  min-height: 20vh; }
+
+header {
+  width: 100%; }
+
+/*# sourceMappingURL=styles.css.map */

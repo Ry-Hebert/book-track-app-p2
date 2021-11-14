@@ -1,0 +1,13 @@
+@import "mcr-reset.scss";
+
+@import "small";
+
+@media only screen and (min-width:34rem) 
+{
+    @import "medium";
+}
+
+@media only screen and (min-width:60rem) 
+{
+    @import "large";
+}
