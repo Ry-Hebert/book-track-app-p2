@@ -3,8 +3,7 @@ require('dotenv').config()
 const Express = require('express')
 const Mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const Todos = require('./models/todos')
-const Categories = require('./models/categories')
+const Books = require('./models/books')
 
 const server = new Express()
 
@@ -14,100 +13,61 @@ server.use(Express.json())
 server.use(Express.urlencoded())
 server.use('/', Express.static('./public'))
 
-Mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+Mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 
 server.listen(process.env.PORT || 3001, () =>{
     console.log('Server is running now')
 })
 
-server.get('/todos', (req, res) => {
-    Todos.find({}, (err, todos) =>{
+server.get('/books', (req, res) => {
+    Books.find({}, (err, books) =>{
 
         if(err){console.log(handleError(err))}
-        res.json(todos)
+        res.json(books)
     })
 })
 
-server.get('/categories', (req, res) => {
-    Categories.find({}, (err, categories) =>{
+server.get('/books/:id', (req, res) => {
+    Books.find({}, (err, books) =>{
 
         if(err){console.log(handleError(err))}
-        res.json(categories)
+        res.json(books)
     })
 })
 
-server.get('/category/:id', (req, res) => {
-    Categories.find({}, (err, categories) =>{
-
-        if(err){console.log(handleError(err))}
-        res.json(categories)
-    })
-})
-
-server.post('/todos', (req, res) => {
-    Todos.create({
-    id: req.body.id,
-    taskName: req.body.todo,
-    completed:  false,
-    category: req.body.category
+server.post('/books', (req, res) => {
+    Books.create({
+    key: req.body.key,
+    image: req.body.image,
+    title:  req.body.title,
+    read: req.body.read,
+    ratting: req.body.ratting
     })
     res.send('Successfully added element')
 })
 
-server.post('/categories', (req, res) => {
-    console.log(req.query)
-    
-    Categories.create({
-    category: req.query.category
-    })
-    res.send('Successfully added element')
-})
-
-server.put('/todos/:id', (req, res) =>{
-    console.log('hit')
-    Todos.findOne({id: req.params.id}, (err, todo) =>{
+server.put('/books/:id', (req, res) =>{
+    Books.findOne({key: req.params.id}, (err, book) =>{
         if(err){console.log(handleError(err))}
-        console.log(todo)
+        console.log(book)
         console.log(req.body)
-        todo.update(req.body, (err) =>{
+        book.update(req.body, (err) =>{
             // if(err){console.log(handleError(err))}
-            Todos.find({}, (err, todoX) =>{
+            Books.find({}, (err, bookX) =>{
                 if(err){console.log(handleError(err))}
-                res.json(todoX)
+                res.json(bookX)
             })
         })
     })
 })
 
-server.put('/categories/:id', (req, res) =>{
-    Categories.findById(req.params.id, (err, category) =>{
+server.delete('/books/:id', (req, res) =>{
+    console.log(req.params.id)
+    Books.remove({key: req.params.id}, (err) => {
         if(err){console.log(handleError(err))}
-        category.update(req.query, (err) =>{
+        Books.find((err, book) =>{
             if(err){console.log(handleError(err))}
-            Categories.find({}, (err, categoryX) =>{
-                if(err){console.log(handleError(err))}
-                res.json(categoryX)
-            })
-        })
-    })
-})
-
-server.delete('/todos/:id', (req, res) =>{
-    Todos.remove({id: req.params.id}, (err) => {
-        if(err){console.log(handleError(err))}
-        Todos.find((err, todo) =>{
-            if(err){console.log(handleError(err))}
-            res.json(todo)
-        })
-    })
-})
-
-server.delete('/categories/:id', (req, res) =>{
-    Categories.remove({_id: req.params.id}, (err) => {
-        if(err){console.log(handleError(err))}
-        Categories.find((err, category) =>{
-            if(err){console.log(handleError(err))}
-            res.json(category)
+            res.json(book)
         })
     })
 })

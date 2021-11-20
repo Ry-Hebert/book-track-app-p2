@@ -171,6 +171,34 @@ main {
   justify-items: center;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+#userOutDest1 {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+#userOutDest2 {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
 }
 
 .secHeader {
@@ -231,8 +259,30 @@ main {
   text-align: center;
 }
 
-.nav-wrapper .brand-logo {
+.card-reveal {
+  color: #222;
+}
+
+.outputSec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.outputSec h2 {
   width: 100%;
+  text-align: center;
+}
+
+.card-content i {
+  color: #444;
+  float: right;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 34rem) {
@@ -248,6 +298,14 @@ main {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }
+  #userOutDest1 {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  #userOutDest2 {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
   .secHeader {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
@@ -260,10 +318,21 @@ main {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  #userOutDest1 {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  #userOutDest2 {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
   .secHeader {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-column: 1 / span 4;
+  }
+  .nav-wrapper {
+    text-align: left;
   }
 }
 /*# sourceMappingURL=styles.css.map */
