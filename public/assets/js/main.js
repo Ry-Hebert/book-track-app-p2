@@ -28,7 +28,7 @@ const searchFunc = document.querySelector('#in2')
 async function searchClickHandler(event){
     resCountIndex = 0
 
-    let apiSearchBase = 'http://openlibrary.org/search.json?q='
+    let apiSearchBase = 'https://openlibrary.org/search.json?q='
 
     let userSearchQ = document.querySelector('#in1')
 
