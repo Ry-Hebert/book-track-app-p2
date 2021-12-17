@@ -92,7 +92,7 @@ const userInputHandler = (event) =>{
 }
 
 const addToRead = async (bookID) =>{
-    let apiSearch = `http://openlibrary.org${bookID}.json`
+    let apiSearch = `https://openlibrary.org${bookID}.json`
 
     let searchRes = await fetch(apiSearch)
     
@@ -120,7 +120,7 @@ const addToRead = async (bookID) =>{
 }
 
 const addHaveRead = async (bookID) =>{
-    let apiSearch = `http://openlibrary.org${bookID}.json`
+    let apiSearch = `https://openlibrary.org${bookID}.json`
 
     let searchRes = await fetch(apiSearch)
     
